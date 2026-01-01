@@ -22,3 +22,7 @@ backup:
     schedule: '0 2 * * *' # Daily backup at 2 AM
     storage:
       storageClass: 'longhorn'
+
+tls:
+  enabled: true
+  existingSecret: r2devops-postgresql-r2devops-svc-k8s-demo-01-local-tls
