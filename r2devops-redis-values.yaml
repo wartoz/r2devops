@@ -11,10 +11,6 @@ auth:
         channels: "&*"
     userSecret: "redis-acl"
 
-global:
-  default:
-    storageClass: "longhorn"
-
 master:
   persistence:
     enabled: true
@@ -31,5 +27,6 @@ replica:
 networkPolicy:
   enabled: true
   allowExternal: true
+  allowExternalEgress: true
 
 clusterDomain: k8s-demo-01.local
