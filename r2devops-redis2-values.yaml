@@ -5,15 +5,5 @@ sentinel:
 
 auth:
   enabled: true
-  existingSecret: "redis-acl"
-  existingSecretPasswordKey: "adminUser"
-  acl:
-    enabled: true
-    users:
-      - username: "r2devops"
-        enabled: "on"
-        commands: "+@all"
-        keys: "~*"
-        channels: "&*"
-    existingSecret: "redis-acl"
-    existingSecretACLKey: "r2devops"
+  existingSecret: "redis-credentials"
+  existingSecretPasswordKey: "password"
