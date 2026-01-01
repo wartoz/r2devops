@@ -1,9 +1,11 @@
 architecture: replication
-replicaCount: 3  # 1 master + 2 replicas
+replicaCount: 2
+
 sentinel:
-  enabled: false
+  enabled: true
+  quorum: 2
+  downAfterMilliseconds: 30000
+  failoverTimeout: 180000
 
 auth:
   enabled: true
-  existingSecret: "redis-acl"
-  existingSecretPasswordKey: "adminUser"
