@@ -4,11 +4,6 @@ auth:
   acl:
     enabled: true
     users:
-      - username: default
-        enabled: "on"
-        commands: "+@all"
-        keys: "~*"
-        channels: "&*"
       - username: "r2devops"
         enabled: "on"
         commands: "+@all"
