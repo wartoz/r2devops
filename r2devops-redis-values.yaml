@@ -7,15 +7,7 @@ auth:
   existingSecret: "redis-acl"
   existingSecretPasswordKey: "adminUser"
   usePasswordFiles: true
-  acl:
-    enabled: true
-    users:
-      - username: "r2devops"
-        enabled: "on"
-        commands: "+@all"
-        keys: "~*"
-        channels: "&*"
-    userSecret: "redis-acl"
+
 # extraDeploy:
 # - apiVersion: secrets.hashicorp.com/v1beta1
 #   kind: VaultStaticSecret
