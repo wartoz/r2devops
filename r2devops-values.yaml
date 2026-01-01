@@ -24,7 +24,7 @@ jobs:
 
 gitlab:
   domain: "https://gitlab.com"
-  organization: 'r2devops368'
+  organization: 'https://gitlab.com/r2devops368'
 
 worker:
   replicaCount: 5 # Default is 5. Increase it depending of your needs
