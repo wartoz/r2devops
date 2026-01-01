@@ -9,7 +9,7 @@ auth:
 global:
   default:
     storageClass: 'longhorn'
-    size: 10Gi
+    size: 1Gi
     accessModes:
       - ReadWriteOnce
 
