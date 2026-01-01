@@ -6,8 +6,8 @@ auth:
     adminPasswordKey: POSTGRES_PASSWORD
     userPasswordKey: APP_DB_PASSWORD
 
-primary:
-  persistence:
+global:
+  default:
     storageClass: 'longhorn'
     size: 10Gi
     accessModes:
