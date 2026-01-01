@@ -30,12 +30,9 @@ worker:
 
 ingress:
   enabled: true
-  className: "traefik"
-  annotations: {}
-  tls: 
-    - secretName: r2devops-docker-compose-zip-tls
-      hosts:
-        - r2devops.docker-compose.zip
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "vault-clusterissuer"
 
 postgresql:
   enabled: true
