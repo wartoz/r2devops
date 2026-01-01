@@ -5,7 +5,6 @@ auth:
     enabled: true
     users: 
       - username: "r2devops"
-        password: ""
         enabled: "on"
         commands: "+@all"
         keys: "~*"
