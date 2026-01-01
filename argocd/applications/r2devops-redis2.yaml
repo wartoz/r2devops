@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: r2devops-redis2
+  namespace: argocd
+spec:
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  sources:
+    - chart: redis
+      repoURL: registry-1.docker.io/cloudpirates
+      targetRevision: 0.19.0 # Replace with the redis version you'd like to install or upgrade to
+      helm:
+        valueFiles: 
+        - $values/r2devops-redis2-values.yaml
+    - repoURL: 'https://github.com/wartoz/r2devops.git'
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: r2devops

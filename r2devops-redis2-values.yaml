@@ -1,0 +1,18 @@
+architecture: replication
+replicaCount: 3  # 1 master + 2 replicas
+sentinel:
+  enabled: false
+
+auth:
+  enabled: true
+  existingSecret: "redis-acl"
+  existingSecretPasswordKey: "adminUser"
+  acl:
+    enabled: true
+    users:
+      - username: "r2devops"
+        enabled: "on"
+        commands: "+@all"
+        keys: "~*"
+        channels: "&*"
+    userSecret: "redis-acl"
