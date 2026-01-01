@@ -15,4 +15,17 @@ global:
   default:
     storageClass: "longhorn"
 
+master:
+  persistence:
+    enabled: true
+    storageClass: "longhorn"
+    size: 10Gi
+
+replica:
+  replicaCount: 3
+  persistence:
+    enabled: true
+    storageClass: "longhorn"
+    size: 10Gi
+
 clusterDomain: k8s-demo-01.local
