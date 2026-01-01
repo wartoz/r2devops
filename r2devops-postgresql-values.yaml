@@ -12,7 +12,6 @@ primary:
     size: 10Gi
     accessModes:
       - ReadWriteOnce
-    annotations: {}
 
 service:
   type: ClusterIP
