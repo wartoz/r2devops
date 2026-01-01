@@ -1,37 +1,110 @@
+global:
+  defaultStorageClass: "longhorn"
+
+architecture: replication
 auth:
+  enabled: true
+  sentinel: true
   existingSecret: "redis-acl"
   existingSecretPasswordKey: "adminUser"
-  acl:
-    enabled: true
-    users:
-      - username: "r2devops"
-        enabled: "on"
-        commands: "+@all"
-        keys: "~*"
-        channels: "&*"
-    userSecret: "redis-acl"
+  usePasswordFiles: true
+
+# extraDeploy:
+# - apiVersion: secrets.hashicorp.com/v1beta1
+#   kind: VaultStaticSecret
+#   metadata:
+#     name: vault-ss-redis-dev  # ss pour static secret
+#     namespace: redis-cluster
+#     annotations:
+#       "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+#       "helm.sh/hook-weight": "-10"
+#   spec:
+#     # vaultAuthRef: default # dans les helm values on a activé le defaultAuthMethod
+#     type: kv-v2
+#     mount: kv-rke2-tools-dev
+#     path: databases/no-sql/redis-dev
+#     refreshAfter: 60s  # toutes les 60s vso synchronise avec vault
+#     destination:
+#       create: true
+#       name: redis-root-secret
+#       type: Opaque
+#       transformation:
+#         excludeRaw: true  # la clé _raw  n'apparaitra pas dans le secret k8s
 
 master:
+  count: 1
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 1
+      memory: 1024Mi
   persistence:
     enabled: true
-    storageClass: "longhorn"
-    size: 10Gi
+    accessModes:
+      - ReadWriteOnce
+    size: 1Gi
+  persistentVolumeClaimRetentionPolicy:
+    enabled: true
+    whenScaled: Retain
+    whenDeleted: Retain
+
+  pdb:
+    create: true
+    maxUnavailable: "1"
 
 replica:
   replicaCount: 3
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 1
+      memory: 1024Mi
   persistence:
     enabled: true
-    storageClass: "longhorn"
-    size: 10Gi
+    accessModes:
+      - ReadWriteOnce
+    size: 1Gi
+  persistentVolumeClaimRetentionPolicy:
+    enabled: true
+    whenScaled: Retain
+    whenDeleted: Retain
+  service:
+    type: ClusterIP
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 11
+    targetCPU: "80"
+    targetMemory: "80"
+  pdb:
+    create: true
+    maxUnavailable: "1"
 
-networkPolicy:
+sentinel:
   enabled: true
-  allowExternal: true
-  allowExternalEgress: true
+  downAfterMilliseconds: 5000  # 5s
+  failoverTimeout: 30000  # 30s
+  service:
+    type: LoadBalancer
+    loadBalancerIP: 10.10.10.23
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 1
+      memory: 1024Mi
+
+metrics:
+  enabled: false
+  serviceMonitor:
+    enabled: false
 
 clusterDomain: k8s-demo-01.local
 
 image:
   debug: true
-
-architecture: replication
