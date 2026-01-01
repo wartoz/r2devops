@@ -9,3 +9,5 @@ sentinel:
 
 auth:
   enabled: true
+  existingSecret: "redis-acl"
+  existingSecretPasswordKey: "adminUser"
