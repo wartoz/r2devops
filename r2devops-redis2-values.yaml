@@ -15,4 +15,5 @@ auth:
         commands: "+@all"
         keys: "~*"
         channels: "&*"
-    userSecret: "redis-acl"
+    existingSecret: "redis-acl"
+    existingSecretACLKey: "r2devops"
