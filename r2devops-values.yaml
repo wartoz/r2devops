@@ -38,8 +38,11 @@ postgresql:
   global:
     postgresql:
       auth:
-        username: "r2devops"
-        postgresPassword: ""
+        username: r2devops
+        existingSecret: "postgresql-secret"
+        secretKeys:
+          adminPasswordKey: "POSTGRES_PASSWORD"
+          userPasswordKey: "APP_DB_PASSWORD"
   custom:
     host: "r2devops-postgresql"
     port: 5432
@@ -48,7 +51,8 @@ postgresql:
 
 redis:
   auth:
-    password: ""
+    existingSecret: "redis-acl"
+    existingSecretPasswordKey: "r2devops"
   custom:
     port: 6379
     host: "r2devops-redis"
