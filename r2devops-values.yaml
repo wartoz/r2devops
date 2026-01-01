@@ -52,11 +52,11 @@ postgresql:
 redis:
   auth:
     existingSecret: "redis-acl"
-    existingSecretPasswordKey: "r2devops"
+    existingSecretPasswordKey: "adminUser"
   custom:
     port: 6379
     host: "r2devops-redis-master"
-    user: "r2devops"
+    user: "default"
   cert: |
     -----BEGIN CERTIFICATE-----
     MIIDtTCCAp2gAwIBAgIUKkvRDga5IFwODOLroNdUxdaND2wwDQYJKoZIhvcNAQEL

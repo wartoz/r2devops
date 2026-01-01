@@ -3,3 +3,6 @@ secrets/*
 
 # ignore all certificates files
 certificates/*
+
+# ignore all client files
+client/*
