@@ -30,3 +30,6 @@ networkPolicy:
   allowExternalEgress: true
 
 clusterDomain: k8s-demo-01.local
+
+image:
+  debug: true
