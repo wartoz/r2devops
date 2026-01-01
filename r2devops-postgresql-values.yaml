@@ -6,10 +6,6 @@ auth:
     adminPasswordKey: POSTGRES_PASSWORD
     userPasswordKey: APP_DB_PASSWORD
 
-global:
-  default:
-    storageClass: 'longhorn'
-
 primary:
   persistence:
     storageClass: 'longhorn'
@@ -24,3 +20,5 @@ backup:
   enabled: true
   cronjob:
     schedule: '0 2 * * *' # Daily backup at 2 AM
+    storage:
+      storageClass: 'longhorn'
