@@ -10,7 +10,7 @@ spec:
   project: default
   sources:
     - chart: redis
-      repoURL: https://charts.bitnami.com/bitnami
+      repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 24.1.0 # Replace with the redis version you'd like to install or upgrade to
       helm:
         valueFiles: 

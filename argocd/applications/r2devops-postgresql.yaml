@@ -10,7 +10,7 @@ spec:
   project: default
   sources:
     - chart: postgresql
-      repoURL: https://charts.bitnami.com/bitnami
+      repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 18.1.15 # Replace with the postgresql version you'd like to install or upgrade to
       helm:
         valueFiles: 
