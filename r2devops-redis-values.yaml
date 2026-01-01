@@ -33,3 +33,5 @@ clusterDomain: k8s-demo-01.local
 
 image:
   debug: true
+
+architecture: replication
