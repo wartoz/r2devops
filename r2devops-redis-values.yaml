@@ -28,4 +28,8 @@ replica:
     storageClass: "longhorn"
     size: 10Gi
 
+networkPolicy:
+  enabled: true
+  allowExternal: true
+
 clusterDomain: k8s-demo-01.local
