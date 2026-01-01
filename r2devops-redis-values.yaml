@@ -1,15 +1,16 @@
 auth:
-  existingSecretPasswordKey: "redis-secret"
+  existingSecret: "redis-acl"
+  existingSecretPasswordKey: "adminUser"
   acl:
-    enabled: true                       # Activer ACL
-    users:
-      - username: r2devops              # Nouvel utilisateur
-        enabled: true
+    enabled: true
+    users: 
+      - username: "r2devops"
+        password: ""
+        enabled: "on"
         commands: "+@all"
         keys: "~*"
-        passwordSecret:
-          name: redis-secret            # nom du secret Kubernetes existant
-          key: password             # clé dans le secret contenant le mot de passe
+        channels: "&*"
+    userSecret: "redis-acl"
 
 global:
   default:
