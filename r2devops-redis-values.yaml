@@ -3,7 +3,12 @@ auth:
   existingSecretPasswordKey: "adminUser"
   acl:
     enabled: true
-    users: 
+    users:
+      - username: default
+        enabled: "on"
+        commands: "+@all"
+        keys: "~*"
+        channels: "&*"
       - username: "r2devops"
         enabled: "on"
         commands: "+@all"
