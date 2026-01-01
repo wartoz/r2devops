@@ -15,7 +15,4 @@ global:
   default:
     storageClass: "longhorn"
 
-sentinel:
-  enabled: true
-
 clusterDomain: k8s-demo-01.local
