@@ -44,6 +44,17 @@ master:
     accessModes:
       - ReadWriteOnce
     size: 1Gi
+  extraVolumes:
+  - name: redis-acl-list
+    secret:
+      secretName: redis-acl-list
+  extraVolumeMounts:
+    - name: redis-acl-list
+      readOnly: true
+      subPath: users.acl
+      mountPath: "/etc/redis/users.acl"
+  commonConfiguration:
+    aclfile /etc/redis/users.acl
 
 replica:
   replicaCount: 2
