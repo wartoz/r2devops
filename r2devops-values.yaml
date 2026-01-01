@@ -44,52 +44,6 @@ redis:
   enabled: true
   password: ""
   cert: |
-  front:
-  host: 'r2devops.docker-compose.zip'
-
-jobs:
-  host: 'r2devops.docker-compose.zip'
-
-  # Using existing secret for configuration (uncomment if you use secret)
-  extraEnv:
-    - name: SECRET_KEY
-      valueFrom:
-        secretKeyRef:
-          name: "r2devops-secret"
-          key: "secret-key"
-    - name: GITLAB_OAUTH2_CLIENT_ID
-      valueFrom:
-        secretKeyRef:
-          name: "r2devops-secret"
-          key: "gitlab-oauth2-client-id"
-    - name: GITLAB_OAUTH2_CLIENT_SECRET
-      valueFrom:
-        secretKeyRef:
-          name: "r2devops-secret"
-          key: "gitlab-oauth2-client-secret"
-
-gitlab:
-  domain: "https://gitlab.com"
-
-worker:
-  replicaCount: 5 # Default is 5. Increase it depending of your needs
-
-ingress:
-  enabled: true
-  className: "traefik"
-  annotations:
-    cert-manager.io/cluster-issuer: "vault-clusterissuer"
-
-postgresql:
-  enabled: true
-  postgresqlUsername: r2devops   
-  postgresqlPassword: ""         
-  postgresqlDatabase: r2devops
-
-redis:
-  enabled: true
-  password: ""
-  cert: |
     -----BEGIN CERTIFICATE-----
     MIIDtTCCAp2gAwIBAgIUKkvRDga5IFwODOLroNdUxdaND2wwDQYJKoZIhvcNAQEL
     BQAwFzEVMBMGA1UEAxMMQUNNRSBSb290IFgxMB4XDTI1MDYwMzEyNTIyMVoXDTMw
