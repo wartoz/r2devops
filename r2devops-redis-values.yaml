@@ -1,0 +1,16 @@
+auth:
+  existingSecretPasswordKey: "redis-secret"
+  acl:
+    enabled: true                       # Activer ACL
+    users:
+      - username: r2devops              # Nouvel utilisateur
+        enabled: true
+        commands: "+@all"
+        keys: "~*"
+        passwordSecret:
+          name: redis-secret            # nom du secret Kubernetes existant
+          key: password             # clé dans le secret contenant le mot de passe
+
+global:
+  default:
+    storageClass: "longhorn"
