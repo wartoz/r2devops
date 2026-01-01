@@ -44,14 +44,6 @@ master:
     accessModes:
       - ReadWriteOnce
     size: 1Gi
-  persistentVolumeClaimRetentionPolicy:
-    enabled: true
-    whenScaled: Retain
-    whenDeleted: Retain
-
-  pdb:
-    create: true
-    maxUnavailable: "1"
 
 replica:
   replicaCount: 2
@@ -67,21 +59,6 @@ replica:
     accessModes:
       - ReadWriteOnce
     size: 1Gi
-  persistentVolumeClaimRetentionPolicy:
-    enabled: true
-    whenScaled: Retain
-    whenDeleted: Retain
-  service:
-    type: ClusterIP
-  autoscaling:
-    enabled: true
-    minReplicas: 3
-    maxReplicas: 11
-    targetCPU: "80"
-    targetMemory: "80"
-  pdb:
-    create: true
-    maxUnavailable: "1"
 
 clusterDomain: k8s-demo-01.local
 
