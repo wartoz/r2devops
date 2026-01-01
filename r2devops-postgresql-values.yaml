@@ -25,4 +25,4 @@ backup:
 
 tls:
   enabled: true
-  existingSecret: r2devops-postgresql-r2devops-svc-k8s-demo-01-local-tls
+  certificateSecret: r2devops-postgresql-r2devops-svc-k8s-demo-01-local-tls
