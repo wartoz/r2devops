@@ -55,7 +55,7 @@ redis:
     existingSecretPasswordKey: "r2devops"
   custom:
     port: 6379
-    host: "r2devops-redis"
+    host: "r2devops-redis-master"
     user: "r2devops"
   cert: |
     -----BEGIN CERTIFICATE-----
