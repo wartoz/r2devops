@@ -4,7 +4,6 @@ global:
 architecture: replication
 auth:
   enabled: true
-  sentinel: true
   existingSecret: "redis-acl"
   existingSecretPasswordKey: "adminUser"
   usePasswordFiles: true
@@ -55,7 +54,7 @@ master:
     maxUnavailable: "1"
 
 replica:
-  replicaCount: 3
+  replicaCount: 2
   resources:
     requests:
       cpu: 200m
@@ -83,26 +82,6 @@ replica:
   pdb:
     create: true
     maxUnavailable: "1"
-
-sentinel:
-  enabled: true
-  downAfterMilliseconds: 5000  # 5s
-  failoverTimeout: 30000  # 30s
-  service:
-    type: LoadBalancer
-    loadBalancerIP: 10.10.10.23
-  resources:
-    requests:
-      cpu: 200m
-      memory: 512Mi
-    limits:
-      cpu: 1
-      memory: 1024Mi
-
-metrics:
-  enabled: false
-  serviceMonitor:
-    enabled: false
 
 clusterDomain: k8s-demo-01.local
 
