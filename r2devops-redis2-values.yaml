@@ -11,3 +11,5 @@ auth:
   enabled: true
   existingSecret: "redis-acl"
   existingSecretPasswordKey: "adminUser"
+
+clusterDomain: k8s-demo-01.local
