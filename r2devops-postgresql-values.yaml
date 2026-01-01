@@ -6,13 +6,6 @@ auth:
     adminPasswordKey: POSTGRES_PASSWORD
     userPasswordKey: APP_DB_PASSWORD
 
-global:
-  default:
-    storageClass: 'longhorn'
-    size: 1Gi
-    accessModes:
-      - ReadWriteOnce
-
 service:
   type: ClusterIP
   ports:
