@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: r2devops
+  namespace: argocd
+spec:
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  sources:
+    - chart: r2devops
+      repoURL: https://charts.r2devops.io
+      targetRevision: 2.17.7 # Replace with the r2devops version you'd like to install or upgrade to
+      helm:
+        valueFiles: 
+        - $values/r2devops-values.yaml
+    - repoURL: 'https://github.com/wartoz/r2devops.git'
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: r2devops
