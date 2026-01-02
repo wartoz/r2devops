@@ -81,3 +81,30 @@ redis:
     v4Gq6OxCUmYqZD8IBMas1g/gjm0m6imghqxXhBxnuUFVTDdWrgIpZeXi63fq3CcA
     5o+sEtw4IpLSjIlYjFN0QNVAG8S60e5BJ0i/phc3bptGlmstrjgFuFY=
     -----END CERTIFICATE-----
+
+customCertificateAuthority:
+  certificates: 
+  - name: rootCA.crt # Must have the .crt extension
+    value: |
+      -----BEGIN CERTIFICATE-----
+      MIIDtTCCAp2gAwIBAgIUKkvRDga5IFwODOLroNdUxdaND2wwDQYJKoZIhvcNAQEL
+      BQAwFzEVMBMGA1UEAxMMQUNNRSBSb290IFgxMB4XDTI1MDYwMzEyNTIyMVoXDTMw
+      MDYwMjEyNTI1MVowHzEdMBsGA1UEAxMUQUNNRSBJbnRlcm1lZGlhdGUgUjEwggEi
+      MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/fXsjObndGHJlhtjzlt2g/HIz
+      4mgH8dc77zYr0sIPqxsTl2E+Edd30ZeRWsAtd+vmW7brIFxgJxZUQIjxmaRyGykP
+      A8YmR/KZc2gCJx88E2b0oOUYgGY4TsK+1/t3BPOfCKkBKrj6WEmm5qJ38mG4lJwu
+      d2PVvrhRbzZFhC01b2bfRBES/bG9iTlS/gMo7rc2xU783kPO4QT76eF2ysLr0NOi
+      HO2Rtu1tA9X/NttGNdDglQSj4PRvLUuU5d9myiF3ZPpgLNBP0/F4l1Eaw5/of0g/
+      KABPImtX7sNHYhHGkgr/idww7oN8Z5wNhM6vbww/0TfkIVraJu1UrACnQ7AtAgMB
+      AAGjgfAwge0wDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0O
+      BBYEFHz/YjERI75K/rM8XlOanj71v+W/MB8GA1UdIwQYMBaAFNs1D5046K+fQcyM
+      TG7MrNpYRs43MEkGCCsGAQUFBwEBBD0wOzA5BggrBgEFBQcwAoYtaHR0cDovL2s4
+      cy12YXVsdC5kb2NrZXItY29tcG9zZS56aXAvdjEvcGtpL2NhMD8GA1UdHwQ4MDYw
+      NKAyoDCGLmh0dHA6Ly9rOHMtdmF1bHQuZG9ja2VyLWNvbXBvc2UuemlwL3YxL3Br
+      aS9jcmwwDQYJKoZIhvcNAQELBQADggEBAJkJpHZdoSbzgkzFZQCaaIwoOdPEtncQ
+      H+wMxfzjM/TqDpq4z9hojq//k5MKmO5V8LB/E23ZUUchYQjVWlPU+xpj5xRjjLO8
+      qsWexBQYJwA8h5csmiK08X3iD6+kvbzX58UDFXoyvN0aTRk7u0oW0xoVmdPLuLbh
+      WYFVFYfLHJGu+u0sNqZ6ayOil1TaSPd7YD1qURpAcCgPBu6pT9POGUiiXYFJtEUu
+      v4Gq6OxCUmYqZD8IBMas1g/gjm0m6imghqxXhBxnuUFVTDdWrgIpZeXi63fq3CcA
+      5o+sEtw4IpLSjIlYjFN0QNVAG8S60e5BJ0i/phc3bptGlmstrjgFuFY=
+      -----END CERTIFICATE-----
